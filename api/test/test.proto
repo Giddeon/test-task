@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "./test";
+
+import "google/protobuf/timestamp.proto";
+
+service Test {
+  rpc GetRates(GetRatesRequest) returns (GetRatesResponse);
+}
+
+message GetRatesRequest {
+  string market = 1;
+}
+
+message GetRatesResponse {
+  double ask = 1;
+  double bid = 2;
+  google.protobuf.Timestamp createdAt = 3;
+}

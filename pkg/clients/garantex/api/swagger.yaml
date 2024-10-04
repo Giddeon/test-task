@@ -1,0 +1,69 @@
+---
+swagger: "2.0"
+info:
+  description: "Member API is API which can be used by client application like SPA."
+  version: "1.9.1-rc.11"
+  title: "Member API v2"
+  contact:
+    name: "Garantex"
+    url: "https://garantexio.github.io/"
+    email: "support@garantex.org"
+host: "stage.garantex.biz"
+basePath: "/api"
+tags:
+- name: "depth"
+  description: "Operations about depths"
+produces:
+- "application/json"
+paths:
+  /v2/depth:
+    get:
+      tags:
+      - "depth"
+      description: "Get depth or specified market. Both asks and bids are sorted from\
+        \ highest price to lowest."
+      operationId: "getV2Depth"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "market"
+        in: "query"
+        description: ""
+        required: true
+        type: "string"
+        enum:
+        - "btceur"
+        - "btckgs"
+        - "btcrub"
+        - "btcusd"
+        - "btcusdc"
+        - "btcusdt"
+        - "daieur"
+        - "dairub"
+        - "daiusd"
+        - "daiusdt"
+        - "ethbtc"
+        - "etheur"
+        - "ethrub"
+        - "ethusd"
+        - "ethusdc"
+        - "ethusdt"
+        - "usdceur"
+        - "usdcrub"
+        - "usdcusd"
+        - "usdcusdt"
+        - "usdteur"
+        - "usdtkgs"
+        - "usdtrub"
+        - "usdtusd"
+        x-exportParamName: "Market"
+      responses:
+        "200":
+          description: "Get depth or specified market. Both asks and bids are sorted\
+            \ from highest price to lowest."
+securityDefinitions:
+  Bearer:
+    type: "apiKey"
+    name: "Authorization"
+    in: "header"
+definitions: {}
